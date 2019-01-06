@@ -1,0 +1,24 @@
+<% layout('layout') %>
+<button onclick="window.location.href='profile'">我的主頁</button>
+<button onclick="window.location.href='doneList'">前往已完成的事(Done List)</button>
+<button onclick="window.location.href='addtodoList'">新增任務</button>
+<h1>正在做的事情</h1>
+<ul>
+    <% for(item in data){  %>
+    <li> 名稱：
+        <%= data[item].mission %>，循環次數：
+        <%= data[item].count %>
+        <form action="countadd" method="POST">
+            <input type="hidden" value='<%= data[item].count %>' name='count'>
+            <input type="hidden" value='<%= item %>' name='item'>
+            <input type="submit" value="+">
+        </form>
+        <form action="do_adddoneList" method="POST">
+            <input type="hidden" value='<%= data[item].mission %>' name='mission'>
+            <input type="hidden" value='<%= data[item].count %>' name='count'>
+            <input type="hidden" value='<%= item %>' name='item'>
+            <input type="submit" value="完成了!">
+        </form>
+    </li>
+    <% }; %>
+</ul>
