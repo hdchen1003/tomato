@@ -58,8 +58,18 @@
                 <div class="clear"></div>
                 <div class="show_history">
                     <!-- 一欄 -->
+                    <% var date=[]  %>
+                    <% for(item in data){  %>
+                        <% var tag=0 %>
+                        <% for(i=0;i<date.length;i++){ %>
+                                <% if(date[i] == data[item].date){tag = 1} %>
+                        <%}%>
+                        <%if(tag==0){date[date.length]= data[item].date}%>
+                    <%}%>
+
+                    <% for(i=0;i<date.length;i++){ %>
                     <div class="one_data">
-                        <span class="date">01/23</span>
+                        <span class="date"><%- date[i] %></span>
                         <div class="result">
                             <div class="color yellow"></div>
                             <p class="tomato_num_end">獲得N顆番茄</p>
@@ -71,22 +81,27 @@
                         <div class="clear"></div>
                         <div class="list">
                             <ul>
-                                    <% for(item in data){  %>
+                                <%var count=0%>
+                                    <% for(_item in data){  %>
+                                        <% if(data[_item].date == date[i]){%>
                                 <li class="light_gray">
-                                    <span class="data_name"><%= data[item].mission %></span>
-                                    <span class="data_num"><%= data[item].count %></span>
+                                    <span class="data_name"><%= data[_item].mission %></span>
+                                    <span class="data_num"><%= data[_item].count %></span>
+                                            <% count+=data[_item].count %>
                                     <div class="clear"></div>
                                 </li>
                                 <!-- <li class="light_gray">
                                         <span class="data_name">玩皮皮</span>
                                         <span class="data_num">6</span>
                                 </li> -->
+                                <%  }%>
                                 <% }; %>
-                                <li class="total">Total<span class="total_name">9</span></li>
+                                <li class="total">Total<span class="total_name"><%-count%></span></li>
                                
                             </ul>
                         </div>
                     </div>
+                    <% }; %> 
                     <!-- 一欄 -->
 
                     <!-- <div class="one_data">

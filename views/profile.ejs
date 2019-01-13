@@ -31,10 +31,15 @@
 
         <div class="member_right">
             <h2>暱稱</h2>
-            <h2 class="user_name">Urshit</h2>
-            <p>每日目標<span class="blue goal_num">10</span>顆番茄</p>
-            <a href="./member_edit.html"><img class="edit_img" src="./img/edit.png"></a>
+            <h2 class="user_name"><%- data.uname %></h2>
+            <p>每日目標<span class="blue goal_num"><%- data.target %></span>顆番茄</p>
+          
         </div>
+        <form action="profile_edit" method="POST" class="edit_img">
+                <input  type="hidden" value="<%= data.uname %>" name='uname'>
+                <input  type="hidden" value="<%= data.target %>" name='target'>
+                <button type="submit" value="ssss"><img src="./img/edit.png" style="max-width:35px; cursor: pointer;"></button>
+            </form>
     </div>
     <div class="clear"></div>
 

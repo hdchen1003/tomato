@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var admin = require("../service/firedata");
 /* GET home page. */
+var Today=new Date();
 router.get('/timer', function (req, res, next) {
     res.render('timer', { title: '準備計時' });
 });
@@ -45,6 +46,7 @@ router.post('/do_signup', function (req, res, next) {
                     'uid':req.body.uid,
                     'upwd':req.body.upwd,
                     'uname':req.body.uname,
+                    'target':10,
                     // 'todoList':{'0':null},
                     // 'doneList':{'0':null}
                 }

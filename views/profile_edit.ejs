@@ -1,0 +1,40 @@
+<% layout('layout') %>
+
+<div class="wrap">
+        <div class="header">
+            <div class="menu">
+                <ul>
+                        <li><a href="../clock">Timer</a></li>
+                        <li><a href="todoList">Todo List</a></li>
+                        <li><a href="doneList">History</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_right">
+                <ul>
+                        <li><a href="profile"><img src="./img/user.png" class="user_img blue_frame"></img></a></li>
+                    <li><a href="#" style="margin-right:3%;">今日得到 0/10 個茄茄</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="content">
+            <div class="member_left">
+                <img src="./img/user.png">
+            </div>
+        <form action="do_edit" method="POST">
+            <div class="member_right">
+                <h2>暱稱</h2>
+                <input class="name_edit" type="text" value="<%=uname %>" name='uname'>
+                <p>每日目標<input class="num_edit" type="text"value="<%=target %>" name='target'>顆番茄</p>
+            </div>
+            <div class="clear"></div>
+            <button class="save_edit" type="submit">OK</button>
+        </form>
+        </div>
+        <div class="clear"></div>
+
+        <div class="footer"></div>
+        <div class="clear"></div>
+    </div>

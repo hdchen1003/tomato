@@ -9,7 +9,8 @@ var indexRouter = require('./routes/index');
 var memberRouter = require('./routes/member');
 
 var app = express();
-
+　var Today=new Date();
+console.log((Today.getMonth()+1),Today.getDate() )
 // view engine setup
 var engine = require('ejs-locals');
 var path = require('path');
