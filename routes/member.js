@@ -48,7 +48,7 @@ router.post('/do_addtodoList', function (req, res, next) {
     create.set({ 'mission': req.body.todo, 'count': 0 })
     admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
         data = snapshop.val()
-        res.render('todoList', { title: '待辦事項', data: data });
+        res.render('todoList', { title: '待辦事項', data: data ,unumber:req.cookies.status.unumber});
     })
 })
 
@@ -58,15 +58,21 @@ router.get('/doneList', function (req, res, next) {
         res.render('doneList', { title: '完成事項', data: data });
     })
 })
+
 router.post('/do_adddoneList', function (req, res, next) {
-    var create = admin.ref('user/' + req.cookies.status.unumber + '/doneList').push();
-    create.set({ mission: req.body.mission, count: req.body.count })
-    var remove = admin.ref('user/' + req.cookies.status.unumber + '/todoList/' + req.body.item)
-    remove.remove()
-    admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
-        data = snapshop.val()
-        res.render('todoList', { title: '待辦事項', data: data });
+    admin.ref('user/' + req.cookies.status.unumber + '/todoList/'+req.body.item).once('value', function (snapshop) {
+        _data = snapshop.val()
+       
+        var create = admin.ref('user/' + req.cookies.status.unumber + '/doneList').push();
+        create.set({ mission: _data.mission, count: _data.count })
+        var remove = admin.ref('user/' + req.cookies.status.unumber + '/todoList/' + req.body.item)
+        remove.remove()
+        admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
+            __data = snapshop.val()
+            res.render('todoList', { title: '待辦事項', data: __data,unumber: req.cookies.status.unumber});
+        })
     })
+    
 })
 router.post('/delete_doneList', function (req, res, next) {
     var remove = admin.ref('user/' + req.cookies.status.unumber + '/doneList/' + req.body.item)

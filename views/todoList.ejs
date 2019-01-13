@@ -26,7 +26,7 @@
     <div class="header">
         <div class="menu">
             <ul>
-                <li><a href="./timer.html">Timer</a></li>
+                <li><a href="../clock">Timer</a></li>
                 <li><a href="todoList" class="blue">Todo List</a></li>
                 <li><a href="doneList">History</a></li>
             </ul>
@@ -54,7 +54,12 @@
                     <li class="non_start">
                         <span class="thing_name gray" id="non_start_thing_name"><%= data[item].mission %></span>
                         <button class="gray gray_hover">已獲得 <%= data[item].count %>顆番茄</button>
-                        <form action="../start_timer" method="post" ><input type="hidden" value= '<%= item   %>' name='item'><input type="hidden" value= '<%= unumber   %>' name='unumber'><button class="gray gray_hover"   value="Submit">開始計時</button></form>
+                        <form action="../start_timer" method="post" >
+                            <input type="hidden" value= '<%= item   %>' name='item'>
+                            <input type="hidden" value= '<%= unumber   %>' name='unumber'>
+                            <input type="hidden" value= '<%= data[item].mission %>' name='mission'>
+                            <button class="gray gray_hover"   value="Submit">開始計時</button>
+                        </form>
                     </li><br>
                     
                     <!-- <li class="finish">

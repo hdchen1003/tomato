@@ -5,13 +5,15 @@ var admin = require("../service/firedata");
 router.get('/timer', function (req, res, next) {
     res.render('timer', { title: '準備計時' });
 });
-router.get('/start_timer', function (req, res, next) {
-   
-    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber });
+
+router.post('/start_timer', function (req, res, next) {
+    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber ,mission:req.body.mission});
+});
+router.get('/clock', function (req, res, next) {
+    res.render('clock_get', { title: '計時' ,time:'25' });
 });
 router.post('/clock', function (req, res, next) {
-    console.log(req.body.time)
-    res.render('clock', { title: '計時' ,time:req.body.time});
+    res.render('clock', { title: '計時' ,time:req.body.time,itemID:req.body.itemID , unumber:req.body.unumber,mission:req.body.mission });
 });
 router.get('/', function (req, res, next) {
     res.render('index', { title: '首頁' ,message:'安安'});

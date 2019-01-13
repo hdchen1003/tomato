@@ -6,7 +6,7 @@
     <div class="header">
         <div class="menu">
             <ul>
-                <li><a href="./timer.html" class="blue">Timer</a></li>
+                <li><a href="clock" class="blue">Timer</a></li>
                 <li><a href="member/todoList">Todo List</a></li>
                 <li><a href="member/doneList">History</a></li>
             </ul>
@@ -42,12 +42,12 @@
 </div>
 <div class="task_right">
     <div class="status">
-        <span class="task_name"><%=mission%></span><br>
-       <form action="member/do_adddoneList" method="POST"> 
-    <input type="hidden" value="<%=itemID%>" name='item'> 
-    <button class="status_finish_btn" type="submit">FINISH</button><br>
+        <span class="task_name">今天想要做什麼？</span><br>
+       <form action="member/todoList" method="GET"> 
+   
+    <button class="status_finish_btn" type="submit">選擇事情</button><br>
 </form> 
-        <button class="status_stop_btn">STOP</button><br>
+        <!-- <button class="status_stop_btn">STOP</button><br> -->
         <!-- <a href="#" class="recal light_gray">recalculate</a><br> -->
     </div>
 </div>
@@ -204,13 +204,7 @@
             if (y >= x) {
                 clearInterval(a);
                
-                var todos = firebase.database().ref('user/<%=unumber%>/todoList/<%=itemID%>')
-                todos.once('value', function (snapshop) {
-                    data = snapshop.val()
-                    var count = data.count
-                    count++
-                    todos.update({ count: count })
-                })
+          
                 restTime()
             }
             secHand.style.transform = `rotate(${secondDeg}deg)`;
