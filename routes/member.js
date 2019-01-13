@@ -37,7 +37,7 @@ router.get('/profile', function (req, res, next) {
 router.get('/todoList', function (req, res, next) {
     admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
         data = snapshop.val()
-        res.render('todoList', { title: '待辦事項', data: data });
+        res.render('todoList', { title: '待辦事項', data: data ,unumber:req.cookies.status.unumber});
     })
 })
 router.get('/addtodoList', function (req, res, next) {

@@ -1,0 +1,39 @@
+<% layout('layout') %>
+<script>
+
+    var time = 5;
+    var arrive_time
+    function timer() {
+        const date = new Date();
+
+        arrive_time = time + (date.getTime() / 1000)
+
+        var a = setInterval(function () {
+            const date = new Date();
+            console.log('工作：' + Math.ceil(arrive_time - (date.getTime() / 1000)))
+            if (Math.ceil(arrive_time - (date.getTime() / 1000)) <= 0) {
+                clearInterval(a);
+                  res_timer();
+            }
+        }, 1000);
+    }
+    // function setDate(){
+
+    // }
+    function res_timer() {
+        const date = new Date();
+        arrive_time = time + (date.getTime() / 1000)
+        var a = setInterval(function () {
+            const date = new Date();
+            console.log('休息：' + Math.ceil(arrive_time - (date.getTime() / 1000)))
+            if (Math.ceil(arrive_time - (date.getTime() / 1000)) <= 0) {
+                clearInterval(a);
+                timer();
+            }
+        }, 1000);
+    }
+    // function resDate() {
+
+    // }
+    timer();
+</script>

@@ -2,11 +2,15 @@ var express = require('express');
 var router = express.Router();
 var admin = require("../service/firedata");
 /* GET home page. */
+router.get('/timer', function (req, res, next) {
+    res.render('timer', { title: '準備計時' });
+});
 router.get('/start_timer', function (req, res, next) {
-    res.render('start_timer', { title: '準備計時' });
+   
+    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber });
 });
 router.post('/clock', function (req, res, next) {
-    
+    console.log(req.body.time)
     res.render('clock', { title: '計時' ,time:req.body.time});
 });
 router.get('/', function (req, res, next) {

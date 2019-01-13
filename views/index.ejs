@@ -1,4 +1,64 @@
 <% layout('layout') %>
-<h1><%= message %></h1>
+<!-- <h1><%= message %></h1>
 <button onclick="window.location.href='signin'">登入</button>
-<button onclick="window.location.href='signup'">註冊</button>
+<button onclick="window.location.href='signup'">註冊</button> -->
+<div class="wrap">
+    <div class="header">
+        <div class="menu">
+            <ul>
+                <li><a href="./timer.html" class="blue">Timer</a></li>
+                <li><a href="member/todoList">Todo List</a></li>
+                <li><a href="member/doneList">History</a></li>
+            </ul>
+        </div>
+
+        <div class="menu_right">
+            <ul>
+                <li><a href='signin' class="login">登入</a></li>
+            </ul>
+            
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="content">
+        <div class="des_to_time">
+            <div class="center_v">
+                <p>FOCUS 30 SECS</p>
+                <p>5 SECS BREAK</p>
+                <p>FOR A TOMATO</p>
+            </div>
+        </div>
+
+        <div class="clock">
+            <div class="clock_frame gray">
+                <img src="./img/時針.png" class="hour">
+                <div class="clear"></div>
+                <img src="./img/秒針.png" class="sec">
+            </div>
+            <div class="timer_tomato_img">
+                <img src="./img/tomato_work.png" class="tomato_work">
+                <!-- <img src="./img/tomato_layzy.png" class="tomato_lazy"> -->
+            </div>
+        </div>
+
+        <div class="task_right">
+            <div class="status">
+                <button class="start_btn yellow" style="margin-top:130px">START</button><br>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <dialog class="dialog_finish">
+        <span>恭喜完成一項任務</span>
+        <button class="start dialog_finish_btn"></button>
+    </dialog>
+
+    <!-- <dialog class="dialog_stop">
+            <span>恭喜完成一項任務</span>
+            
+        </dialog> -->
+    <div class="footer"></div>
+    <div class="clear"></div>
+</div>

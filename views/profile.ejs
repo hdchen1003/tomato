@@ -1,7 +1,43 @@
 <% layout('layout') %>
-<h1>我的主頁</h1>
+<!-- <h1>我的主頁</h1>
 <h2>帳號：<%- data.uid %>，暱稱：<%- data.uname %></h2>
 <h2>正在做的事情：<%-todo%>件，已完成的事情：<%-done%>件</h2>
 <button onclick="window.location.href='todoList'">正在做的事(To Do List)</button>
 <button onclick="window.location.href='doneList'">已完成的事(Done List)</button>
-<button onclick="window.location.href='../signin'">回上一頁</button>
+<button onclick="window.location.href='../signin'">回上一頁</button> -->
+<div class="wrap">
+    <div class="header">
+        <div class="menu">
+            <ul>
+                <li><a href="#">Timer</a></li>
+                <li><a href="todoList">Todo List</a></li>
+                <li><a href="doneList">History</a></li>
+            </ul>
+        </div>
+
+        <div class="menu_right">
+            <ul>
+                <li><a href="profile"><img src="./img/user.png" class="user_img blue_frame"></img></a></li>
+                <li><a href="#" style="margin-right:3%;">今日得到 0/10 個茄茄</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="content">
+        <div class="member_left">
+            <img src="./img/user.png">
+        </div>
+
+        <div class="member_right">
+            <h2>暱稱</h2>
+            <h2 class="user_name">Urshit</h2>
+            <p>每日目標<span class="blue goal_num">10</span>顆番茄</p>
+            <a href="./member_edit.html"><img class="edit_img" src="./img/edit.png"></a>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="footer"></div>
+    <div class="clear"></div>
+</div>

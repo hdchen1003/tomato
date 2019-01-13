@@ -16,6 +16,8 @@ var path = require('path');
 app.engine('ejs', engine);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+//app.use(express.static(__dirname + '/views')); //不知道為什麼css要加這行
+app.use(express.static('views'));
 
 app.use(logger('dev'));
 app.use(express.json());

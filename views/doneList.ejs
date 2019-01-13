@@ -1,5 +1,5 @@
 <% layout('layout') %>
-<button onclick="window.location.href='profile'">我的主頁</button>
+<!-- <button onclick="window.location.href='profile'">我的主頁</button>
 <button onclick="window.location.href='todoList'">前往正在做的事(To Do List)</button>
 <h1>已完成的事情</h1>
 <ul>
@@ -12,4 +12,115 @@
         </form>  
     </li>
     <% }; %>
-</ul>
+</ul> -->
+<div class="wrap">
+        <div class="header">
+            <div class="menu">
+                <ul>
+                    <li><a href="./timer.html">Timer</a></li>
+                    <li><a href="todoList">Todo List</a></li>
+                    <li><a href="doneList" class="blue">History</a></li>
+                </ul>
+            </div>
+
+            <div class="menu_right">
+                <ul>
+                    <li><a href="profile"><img src="./img/user.png" class="user_img"></img></a></li>
+                    <li><a href="#" style="margin-right:3%;">今日得到 0/10 個茄茄</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="content">
+            <div class="select">
+                <select>
+                    <option value="" style="display:none">請選擇你想查看的月份</option>
+                    <option value="1">1 January</option>
+                    <option value="2">2 February</option>
+                    <option value="3">3 March</option>
+                    <option value="4">4 April</option>
+                    <option value="5">5 May</option>
+                    <option value="6">6 June</option>
+                    <option value="7">7 July</option>
+                    <option value="8">8 August</option>
+                    <option value="9">9 September</option>
+                    <option value="10">10 October</option>
+                    <option value="11">11 November</option>
+                    <option value="12">12 December</option>
+                    <option value="recent">Recent</option>
+                </select>
+            </div>
+            
+            <div class="clear"></div>
+            <div class="history">
+                <h2 class="select_title light_gray">RECENT</h2>
+                <div class="clear"></div>
+                <div class="show_history">
+                    <!-- 一欄 -->
+                    <div class="one_data">
+                        <span class="date">01/23</span>
+                        <div class="result">
+                            <div class="color yellow"></div>
+                            <p class="tomato_num_end">獲得N顆番茄</p>
+                            <div class="clear"></div>
+                            <div class="color dark_blue"></div>
+                            <p>DONE</p>
+                            <img src="./img/tomato_layzy.png">
+                        </div>
+                        <div class="clear"></div>
+                        <div class="list">
+                            <ul>
+                                    <% for(item in data){  %>
+                                <li class="light_gray">
+                                    <span class="data_name"><%= data[item].mission %></span>
+                                    <span class="data_num"><%= data[item].count %></span>
+                                    <div class="clear"></div>
+                                </li>
+                                <!-- <li class="light_gray">
+                                        <span class="data_name">玩皮皮</span>
+                                        <span class="data_num">6</span>
+                                </li> -->
+                                <% }; %>
+                                <li class="total">Total<span class="total_name">9</span></li>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- 一欄 -->
+
+                    <!-- <div class="one_data">
+                            <span class="date">01/23</span>
+                            <div class="result">
+                                <div class="color yellow"></div>
+                                <p class="tomato_num_end">獲得N顆番茄</p>
+                                <div class="clear"></div>
+                                <div class="color dark_blue"></div>
+                                <p>DONE</p>
+                                <img src="./img/tomato_layzy.png">
+                            </div>
+                            <div class="clear"></div>
+                            <div class="list">
+                                <ul>
+                                    <li class="light_gray">
+                                        <span class="data_name">玩皮皮</span>
+                                        <span class="data_num">6 </span>
+                                        <div class="clear"></div>
+                                    </li>
+                                    <li class="light_gray">
+                                            <span class="data_name">玩皮皮</span>
+                                            <span class="data_num">6</span>
+                                    </li>
+                                    <li class="total">Total<span class="total_name">9</span></li>
+                                </ul>
+                            </div>
+                    </div> -->
+
+                </div>
+            </div>
+        </div>
+        <div class="clear"></div>
+
+        <div class="footer"></div>
+        <div class="clear"></div>
+    </div>
