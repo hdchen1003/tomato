@@ -8,16 +8,16 @@ router.get('/timer', function (req, res, next) {
 });
 
 router.post('/start_timer', function (req, res, next) {
-    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber ,mission:req.body.mission,  target: req.cookies.status.target});
+    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber ,mission:req.body.mission,  target: req.cookies.status.target,ccc: req.cookies.status.count});
 });
 router.get('/clock', function (req, res, next) {
     res.render('clock_get', { title: '計時' ,time:'25' });
 });
 router.post('/clock', function (req, res, next) {
-    res.render('clock', { title: '計時' ,time:req.body.time,itemID:req.body.itemID , unumber:req.body.unumber,mission:req.body.mission ,  target: req.cookies.status.target});
+    res.render('clock', { title: '計時' ,time:req.body.time , itemID:req.body.itemID , unumber:req.body.unumber,mission:req.body.mission, target: req.cookies.status.target,ccc: req.cookies.status.count  });
 });
 router.get('/', function (req, res, next) {
-    res.render('index', { title: '首頁' ,message:'安安',  target: req.cookies.status.target});
+    res.render('index', { title: '首頁' ,message:'安安', });
 });
 router.get('/signup', function (req, res, next) {
         res.render('signup', { title: '註冊', });
@@ -59,7 +59,7 @@ router.post('/do_signup', function (req, res, next) {
 });
 router.get('/signin', function (req, res, next) {
     if (req.cookies.status) {
-        res.render('index_signed', { title: '已經登入' ,message:'已經登入',  target: req.cookies.status.target});
+        res.render('index_signed', { title: '已經登入' ,message:'已經登入',  target: req.cookies.status.target,ccc: req.cookies.status.count});
     }
     else {
         res.render('signin', { title: '登入' });
@@ -70,12 +70,21 @@ router.post('/do_signin', function (req, res, next) {
         udata = snapshop.val()
         for (item in udata) {
             if (udata[item].uid == req.body.uid && udata[item].upwd == req.body.upwd) {
-                res.cookie('status', {
+                var count = 0
+                var now = (Today.getMonth()+1)+'/'+Today.getDate()
+                for(_item in udata[item].doneList){
+                    if(udata[item].doneList[_item].date == now){
+                        count += udata[item].doneList[_item].count
+                    }
+                }        
+                    res.cookie('status', {
                     'uid': req.body.uid,
                     'uname': req.body.uname,
                     'unumber':item,
-                    'target':udata[item].target
+                    'target':udata[item].target,
+                    'count':count    
                 })
+                console.log(count);
                
                 res.render('index_signed', { title: '登入成功' ,message:'登入成功'});
                 break;
