@@ -65,20 +65,17 @@ table {
 	float: left;
 	width: 60%;
 	height: 100%;
-	background: blueviolet;
 }
 .menu_right{
 	float: right;
 	width: 40%;
 	height: 100%;
-
 }
 .menu a{
     float: left;
 	width: 130px;
 	height: 30px;
 	padding-top: 10px;
-	background-color: darkgoldenrod;
     text-align: center;
     font-size: 20px;
 }
@@ -101,14 +98,12 @@ a{
 	width: 95%;
 	height: 400px;
 	margin: 50px auto;
-	background: #b83535;
 }
 .con_left{
 	float: left;
 	display:table-cell;
 	width: 60%;
 	text-align: center;
-	background: pink;
 	height: 300px;
 }
 .ready{
@@ -117,7 +112,6 @@ a{
 	display: inline-block;
 	margin-top: 150px;
 	vertical-align: middle;
-	background-color: green;
 }
 .add_todo_list{
 	width: 400px;
@@ -125,13 +119,11 @@ a{
 	display: none;
 	margin-top: 110px;
 	vertical-align: middle;
-	background-color: green;
 }
 .con_right{
 	width: 40%;
 	height: 300px;
 	text-align: center;
-	background: chartreuse;
 	float: right;
 }
 .asking_word{
@@ -210,7 +202,6 @@ button{
 	margin-left: 20px; 
 	margin-top: 25px;
 	text-decoration: none;
-	background-color: chocolate;
 	padding-bottom: 6px; 
 	border-bottom: #000 0.5px solid;
 }
@@ -346,7 +337,6 @@ button{
 	font-size: 30px;
 	font-weight: bold;
 	height: 500px;
-	background-color: aqua;
 }
 .center_v{
 	font-family: gill;
@@ -361,7 +351,6 @@ button{
 	width: 460px;
 	float: left;
 	height: 500px;
-	background-color: rgb(30, 255, 0);
 }
 .clock_frame{
 	display: block;
@@ -408,18 +397,15 @@ button{
 	width: 30%;
 	float: left;
 	height: 500px;
-	background-color: fuchsia;
 }
 .status{
 	height: 80%;
 	padding-top: 60px;
-	background-color: #6b6b6b;
 	padding-left: 50px;	
 }
 .task_name{
 	padding-top: 10px;
 	width: 80%;
-	background-color: #00aaae;
 	font-weight: bold;
 	font-size: 20px;
 	/* 超過3行則顯示刪節 */
@@ -435,7 +421,6 @@ button{
 }
 .status a{
 	display: block;
-	padding-top: 18px;
 	font-family: gill;
 	letter-spacing: 1px;
 }
@@ -500,7 +485,7 @@ button{
 	-webkit-transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
   	transition: all 0.5s cubic-bezier(0.02, 0.01, 0.47, 1);
 }
-.dialog_finish{
+.dialog{
 	font-family: "微軟正黑體";
 	font-weight: bold;
 	font-size: 22px;
@@ -508,24 +493,49 @@ button{
 	height: 200px;
 	border: 0px;
 	text-align: center;
+	box-shadow: 0px 0px 12px 5px rgba(0,0,0,0.18), 0 1px 5px 0 rgba(0,0,0,0.15);
 	border-radius: 40px;
 }
 dialog::backdrop {
 	background-color: rgba(255, 255, 255, 0.7);
 }
-.dialog_finish span{
+.finish span{
 	display: block;
-	margin-top: 80px;
 }
-.dialog_finish_btn{
-	display: block;
-	width: 100%;
-	background-color: chartreuse;
+.finish div{
+	margin-top: 50px;
+	margin-left: 130px;
+	height: 50px;
 }
-.ui-dialog-buttonpane{
+.finish_btn{
 	display: block;
-	width: 100%;
-	margin: 0 auto;
+	width: 50px;
+	border-radius: 50%;
+}
+.finish img{
+	margin-left: -1px;
+}
+.stop{
+	width: 350px;
+	height: 220px;
+}
+.stop span{
+	display: block;
+	margin-top: 25px;
+}
+.stop_ok{
+	margin-top: 30px;
+}
+.close{
+	float: right;
+	margin-right: 15px;
+}
+.stop_ok button{
+	width: 120px;
+	height: 40px;
+	border-radius: 40px;
+	font-size: 20px;
+	border: 0.5px solid;
 }
 .blue_frame{
 	margin-top: -17px; 
@@ -535,7 +545,6 @@ dialog::backdrop {
 .member_left{
 	float: left;
 	width: 500px;
-	background-color: blue;
 }
 .member_left img{
 	width: 200px;
@@ -556,7 +565,6 @@ dialog::backdrop {
 .user_name{
 	float: left;
 	width: 40%;
-	background-color: #b835b2;
 	/* 超過3行則顯示刪節 */
 	text-overflow: ellipsis;
 	white-space : nowrap;
@@ -577,7 +585,8 @@ dialog::backdrop {
 }
 .name_edit{
 	float: left;
-	border: 0.5px solid #acacac;
+	border: 0.5px solid #eeeeee;
+	box-shadow: 3px 3px 7px 0.5px rgba(148, 148, 148, 0.3);
 	width: 220px;
 	padding: 10px 17px;
 	border-radius: 70px;
@@ -658,10 +667,9 @@ dialog::backdrop {
 .one_data{
 	float: left;
 	width: 22%;
-	background-color: antiquewhite;
+	box-shadow: 0px 0px 25px 1px rgba(143, 143, 143, 0.3);
 	margin-right: 6%;
 	margin-bottom: 7%;
-	border: 1px solid #acacac;
 	color: #000;
 	border-radius: 30px;
 	padding: 23px;
@@ -703,7 +711,6 @@ dialog::backdrop {
 }
 .data_name{
 	float: left;
-	background-color: #b83535;
 	max-width: 80%;
 	width: 70%;
 	text-overflow: ellipsis;
@@ -714,11 +721,9 @@ dialog::backdrop {
 	width: 40px;
 	float: right;
 	text-align: center;
-	background-color: #ffd45e;
 }
 .list{
 	width: 100%;
-	background-color: darkblue;
 }
 .list li{
 	margin-top: 15px;
@@ -773,6 +778,162 @@ dialog::backdrop {
 .red_hover:hover{
 	border-color: #d3522b;
 	background-color: #d3522b;
+}
+.reveal-modal-bg { 
+	position: fixed; 
+	height: 100%;
+	width: 100%;
+	background: rgb(255, 255, 255);
+	background: rgba(255, 255, 255, 0.8);
+	z-index: 100;
+	display: none;
+	top: 0;
+	left: 0; 
+	}
+
+.reveal-modal {
+	visibility: hidden;
+	top: 100px; 
+	left: 3%;
+	margin-left: -300px;
+	width: 400px;
+	background: #FFFFFF;
+	position: absolute;
+	z-index: 101;
+	padding: 30px 40px 34px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 60px;
+	-moz-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	-box-shadow: 0 0 10px rgba(0,0,0,.4);
+	}
+
+	.reveal-modal{
+		text-align: center;
+	}
+	.reveal-modal h1{
+		font-size: 30px;
+		color: #444444;
+	}
+	.reveal-modal .dialog_p{
+		font-size: 24px;
+		margin-top: 40px;
+		color: #444444;
+	}
+	.reveal-modal .dialog_input{
+		padding-left: 14px;
+		padding-top: 7px; 
+		padding-bottom: 7px; 
+		font-size: 18px;
+		border-radius: 100px;
+		margin-left: 30px;
+		border: 2px solid #BFBFBF;
+	}
+
+	.reveal-modal .dialog_des{
+		font-size: 30px;
+		color: #444444;
+		margin-top: 30px;
+	}
+
+
+	
+.reveal-modal.small 		{ width: 200px; margin-left: -140px;}
+.reveal-modal.medium 		{ width: 400px; margin-left: -240px;}
+.reveal-modal.large 		{ width: 600px; margin-left: -340px;}
+.reveal-modal.xlarge 		{ width: 800px; margin-left: -440px;}
+
+.reveal-modal .close-reveal-modal {
+	font-size: 50px;
+	line-height: .5;
+	position: absolute;
+	top: 30px;
+	right: 40px;
+	color: #aaa;
+	text-shadow: 0 -1px 1px rbga(0,0,0,.6);
+	font-weight: bold;
+	cursor: pointer;
+	color: #00aaae;
+} 
+	
+.dialog_btn_g {
+	font-size: 26px;
+	margin-top: 70px;
+	  padding: 2px;
+	  border-color: transparent;
+	  background: #00aaae;
+	  color: #FFFFFF;
+	  -webkit-transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	  transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	border-radius: 28px;
+	padding-left: 40px;
+	padding-top: 10px; 
+	padding-right: 40px; 
+	padding-bottom: 10px; 
+}
+.dialog_btn_o {
+	font-size: 26px;
+	margin-top: 70px;
+	  padding: 2px;
+	  border-color: transparent;
+	  background: #ffd45f;
+	  color: #FFFFFF;
+	  -webkit-transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	  transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	border-radius: 28px;
+	padding-left: 40px;
+	padding-top: 10px; 
+	padding-right: 40px; 
+	padding-bottom: 10px; 
+}
+.dialog_btn_w {
+	font-size: 26px;
+	margin-top: 70px;
+	border-color: transparent;
+	background: transparent;
+	border: 2px solid #D8D5D5;
+	color: #BFBFBF;
+	-webkit-transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	border-radius: 28px;
+	padding-left: 40px;
+	padding-top: 10px; 
+	padding-right: 40px; 
+	padding-bottom: 10px; 
+}
+
+.dialog_des_btn_g {
+	font-size: 26px;
+	margin-top: 20px;
+	  padding: 2px;
+	  border-color: transparent;
+	background: #FFFFFF;
+	border: 2px solid #00aaae;
+	  color: #00aaae;
+	  -webkit-transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	  transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	border-radius: 28px;
+	padding-left: 40px;
+	padding-top: 10px; 
+	padding-right: 40px; 
+	padding-bottom: 10px; 
+}
+
+.dialog_des_btn_w {
+	font-size: 26px;
+	margin-top: 20px;
+	border-color: transparent;
+	background: transparent;
+	border: 2px solid #D8D5D5;
+	color: #BFBFBF;
+	-webkit-transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	transition: color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1), border-color 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+	border-radius: 28px;
+	padding-left: 40px;
+	padding-top: 10px; 
+	padding-right: 40px; 
+	padding-bottom: 10px; 
 }
 
 .clear{

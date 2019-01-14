@@ -8,16 +8,16 @@ router.get('/timer', function (req, res, next) {
 });
 
 router.post('/start_timer', function (req, res, next) {
-    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber ,mission:req.body.mission});
+    res.render('start_timer', { title: '準備計時',itemID:req.body.item , unumber:req.body.unumber ,mission:req.body.mission,  target: req.cookies.status.target});
 });
 router.get('/clock', function (req, res, next) {
     res.render('clock_get', { title: '計時' ,time:'25' });
 });
 router.post('/clock', function (req, res, next) {
-    res.render('clock', { title: '計時' ,time:req.body.time,itemID:req.body.itemID , unumber:req.body.unumber,mission:req.body.mission });
+    res.render('clock', { title: '計時' ,time:req.body.time,itemID:req.body.itemID , unumber:req.body.unumber,mission:req.body.mission ,  target: req.cookies.status.target});
 });
 router.get('/', function (req, res, next) {
-    res.render('index', { title: '首頁' ,message:'安安'});
+    res.render('index', { title: '首頁' ,message:'安安',  target: req.cookies.status.target});
 });
 router.get('/signup', function (req, res, next) {
         res.render('signup', { title: '註冊', });
@@ -59,7 +59,7 @@ router.post('/do_signup', function (req, res, next) {
 });
 router.get('/signin', function (req, res, next) {
     if (req.cookies.status) {
-        res.render('index_signed', { title: '已經登入' ,message:'已經登入'});
+        res.render('index_signed', { title: '已經登入' ,message:'已經登入',  target: req.cookies.status.target});
     }
     else {
         res.render('signin', { title: '登入' });
@@ -73,8 +73,10 @@ router.post('/do_signin', function (req, res, next) {
                 res.cookie('status', {
                     'uid': req.body.uid,
                     'uname': req.body.uname,
-                    'unumber':item
+                    'unumber':item,
+                    'target':udata[item].target
                 })
+               
                 res.render('index_signed', { title: '登入成功' ,message:'登入成功'});
                 break;
             }

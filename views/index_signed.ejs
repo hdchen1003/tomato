@@ -6,7 +6,7 @@
     <div class="header">
         <div class="menu">
             <ul>
-                <li><a href="./timer.html" class="blue">Timer</a></li>
+                <li><a href="clock">Timer</a></li>
                 <li><a href="member/todoList">Todo List</a></li>
                 <li><a href="member/doneList">History</a></li>
             </ul>
@@ -14,51 +14,47 @@
 
         <div class="menu_right">
             <ul>
-                <li><a href='logout' class="login">登出</a></li>
+                <li><a href="./member.html"><img src="./img/user.png" class="user_img"></img></a></li>
+                <!-- <li><a href="#" style="margin-right:3%;">今日得到 0/<%=target%> 個茄茄</a></li> -->
             </ul>
-            
         </div>
     </div>
     <div class="clear"></div>
 
     <div class="content">
-        <div class="des_to_time">
-            <div class="center_v">
-                <p>FOCUS 30 SECS</p>
-                <p>5 SECS BREAK</p>
-                <p>FOR A TOMATO</p>
+        <div class="con_left">
+            <div class="ready">
+                <p class="asking_word">你要開始專心了嗎？</p>
+                <button class="start"><img src="img/arrow_nbk.png"></button>
             </div>
-        </div>
 
-        <div class="clock">
-            <div class="clock_frame gray">
-                <img src="./img/時針.png" class="hour">
+            <div class="add_todo_list">
+                <p class="asking_word">先新增你的待辦事項吧<br>這樣才能收集茄茄我</p>
+                <div class="space"></div>
+
                 <div class="clear"></div>
-                <img src="./img/秒針.png" class="sec">
-            </div>
-            <div class="timer_tomato_img">
-                <img src="./img/tomato_work.png" class="tomato_work">
-                <!-- <img src="./img/tomato_layzy.png" class="tomato_lazy"> -->
+
+                <div class="todo_list_btn_frame">
+                    <p>add todo list</p>
+                    <a href="./todo_list.html"><button class="todo_list_btn">Todo List</button></a>
+                </div>
+                <a href="#" class="no_to_add">不要</a>
             </div>
         </div>
 
-        <div class="task_right">
-            <div class="status">
-                <button class="start_btn yellow" style="margin-top:130px">START</button><br>
-            </div>
+        <div class="con_right">
+            <img class="tomato_img" src="./img/tomato_layzy.png" />
         </div>
     </div>
     <div class="clear"></div>
 
-    <dialog class="dialog_finish">
-        <span>恭喜完成一項任務</span>
-        <button class="start dialog_finish_btn"></button>
-    </dialog>
-
-    <!-- <dialog class="dialog_stop">
-            <span>恭喜完成一項任務</span>
-            
-        </dialog> -->
     <div class="footer"></div>
     <div class="clear"></div>
 </div>
+
+<script>
+    $('.start').click(function (e) {
+        $('.ready').hide();
+        $('.add_todo_list').fadeIn(1000);
+    });
+</script>

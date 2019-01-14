@@ -27,7 +27,8 @@ router.get('/profile', function (req, res, next) {
                     title: '會員資料',
                     data: udata[item],
                     todo: todo_count,
-                    done: done_count
+                    done: done_count,
+                    target: req.cookies.status.target
                 });
                 break;
             }
@@ -37,7 +38,7 @@ router.get('/profile', function (req, res, next) {
 router.get('/todoList', function (req, res, next) {
     admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
         data = snapshop.val()
-        res.render('todoList', { title: '待辦事項', data: data ,unumber:req.cookies.status.unumber});
+        res.render('todoList', { title: '待辦事項', data: data ,unumber:req.cookies.status.unumber,  target: req.cookies.status.target});
     })
 })
 router.get('/addtodoList', function (req, res, next) {
@@ -48,14 +49,14 @@ router.post('/do_addtodoList', function (req, res, next) {
     create.set({ 'mission': req.body.todo, 'count': 0 })
     admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
         data = snapshop.val()
-        res.render('todoList', { title: '待辦事項', data: data ,unumber:req.cookies.status.unumber});
+        res.render('todoList', { title: '待辦事項', data: data ,unumber:req.cookies.status.unumber,  target: req.cookies.status.target});
     })
 })
 
 router.get('/doneList', function (req, res, next) {
     admin.ref('user/' + req.cookies.status.unumber + '/doneList').once('value', function (snapshop) {
         data = snapshop.val()
-        res.render('doneList', { title: '完成事項', data: data });
+        res.render('doneList', { title: '完成事項', data: data,  target: req.cookies.status.target });
     })
 })
 
@@ -93,14 +94,16 @@ router.post('/countadd', function (req, res, next) {
     })
 })
 router.post('/profile_edit', function (req, res, next) {
-    console.log(req.body.uname,req.body.target)
     res.render('profile_edit', { title: '待辦事項', data: data,uname:req.body.uname,target:req.body.target });
 })
 router.post('/do_edit', function (req, res, next) {
-    console.log(req.body.uname,req.body.target)
+
     var update =admin.ref('user/' + req.cookies.status.unumber )
     update.update({uname:req.body.uname,target:req.body.target}) 
-    
+    res.cookie('status', {     
+                    'uname': req.body.uname,
+                    'target':req.body.target
+                })
     var todo_count = 0
     var done_count = 0
     admin.ref('user/' + req.cookies.status.unumber + '/todoList').once('value', function (snapshop) {
@@ -123,7 +126,8 @@ router.post('/do_edit', function (req, res, next) {
                     title: '會員資料',
                     data: udata[item],
                     todo: todo_count,
-                    done: done_count
+                    done: done_count,
+                    target: req.cookies.status.target
                 });
                 break;
             }
