@@ -40,6 +40,10 @@
         <div class="hand second-hand"></div>
     </div>
 </div>
+<div class="timer_tomato_img" id='tomatoimg'>
+        <img src="./img/tomato_work.png" class="tomato_work">
+       
+    </div>
 <div class="task_right">
     <div class="status">
         <span class="task_name"><%=mission%></span><br>
@@ -189,16 +193,17 @@
     var rest = 10
 
     
-  
+    var img = document.getElementById("tomatoimg")
 
     function workTime() {
         var time = x + date.getTime()
         var timeDeg = 360 / x
+        img.innerHTML='  <img src="./img/tomato_work.png" class="tomato_work">'
         var a = setInterval(function () {
             time = time - 1
             var y = x + date.getTime() - time
              
-           
+       
             console.log('工作：'+y)
             const secondDeg = (90 + timeDeg * y);
             if (y >= x) {
@@ -220,6 +225,8 @@
     function restTime() {
         var rest_time = rest + date.getTime()
         var resDeg = 360/rest
+        img.innerHTML='    <img src="./img/tomato_layzy.png" class="tomato_work"><span class="break_word purple">BREAK TIME</span>'
+                    
         var b = setInterval(function () {
             rest_time = rest_time - 1
             var y = rest + date.getTime() - rest_time
