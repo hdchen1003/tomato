@@ -1,27 +1,5 @@
 <% layout('layout') %>
-<!-- <button onclick="window.location.href='profile'">我的主頁</button>
-<button onclick="window.location.href='doneList'">前往已完成的事(Done List)</button>
-<button onclick="window.location.href='addtodoList'">新增任務</button>
-<h1>正在做的事情</h1>
-<ul>
-    <% for(item in data){  %>
-    <li> 名稱：
-        <%= data[item].mission %>，循環次數：
-        <%= data[item].count %>
-        <form action="countadd" method="POST">
-            <input type="hidden" value='<%= data[item].count %>' name='count'>
-            <input type="hidden" value='<%= item %>' name='item'>
-            <input type="submit" value="+">
-        </form>
-        <form action="do_adddoneList" method="POST">
-            <input type="hidden" value='<%= data[item].mission %>' name='mission'>
-            <input type="hidden" value='<%= data[item].count %>' name='count'>
-            <input type="hidden" value='<%= item %>' name='item'>
-            <input type="submit" value="完成了!">
-        </form>
-    </li>
-    <% }; %>
-</ul> -->
+
 <div class="wrap">
     <div class="header">
         <div class="menu">
@@ -43,8 +21,10 @@
     <div class="content">
         <div class="todolist">
             <div class="add_thing">
-                <input type="text" placeholder="今天有什麼任務呢"></input>
-                <button onclick="window.location.href='addtodoList'"  class="add">+</button>
+                    <form method="POST" action='do_addtodoList'>
+                <input type="text" placeholder="今天有什麼任務呢"  name="todo"></input>
+                <button type="submit"  class="add">+</button>
+                </form>
             </div>
             <div class="clear"></div>
             <div class="today_task">
@@ -54,27 +34,18 @@
                     <li class="non_start">
                         <span class="thing_name gray" id="non_start_thing_name"><%= data[item].mission %></span>
                         <button class="gray gray_hover">已獲得 <%= data[item].count %>顆番茄</button>
-                        <form action="../start_timer" method="post" >
-                            <input type="hidden" value= '<%= item   %>' name='item'>
+                        <form action="../clock" method="post" >
+                            <input type="hidden" value= '<%= item   %>' name='itemID'>
                             <input type="hidden" value= '<%= unumber   %>' name='unumber'>
                             <input type="hidden" value= '<%= data[item].mission %>' name='mission'>
+                            <input type="hidden" name="time" value="0.1667">
                             <button class="gray gray_hover"   value="Submit">開始計時</button>
                         </form>
                     </li><br>
                     
-                    <!-- <li class="finish">
-                        <span class="thing_name light_gray" id="finish_thing_name"><%= data[item].mission %></span>
-                        <span class="tomato_num light_gray" id="finish_tomato_num">已獲得 <%= data[item].count %>顆番茄</span>
-                    </li><br>
-                    
-                    <li class="working">
-                        <span class="thing_name blue" id="working_thing_name">我要成為海賊王我要成為海賊王我要成為海賊王我要成為海賊王我要成為海賊王我要成為海賊王</span>
-                        <a href="#"><button class="red red_hover">完成</button></a>
-                        <a href="./timer.html"><button class="blue blue_hover">繼續</button></a>
-                        <span class="tomato_num light_gray" id="working_tomato_num">已獲得1顆番茄</span>
-                    </li><br> -->
+                    <% }; %>
                 </ul>
-                <% }; %>
+               
             </div>             
         </div>
         <div class="con_right">

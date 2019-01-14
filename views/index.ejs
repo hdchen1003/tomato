@@ -1,7 +1,5 @@
 <% layout('layout') %>
-<!-- <h1><%= message %></h1>
-<button onclick="window.location.href='signin'">登入</button>
-<button onclick="window.location.href='signup'">註冊</button> -->
+
 
     <div class="wrap">
         <div class="header">
@@ -65,9 +63,10 @@
         <div id="enroll" class="reveal-modal">
             <h1>註冊</h1>
             <form method="POST" action='do_signup'>
+                    <input type="hidden" name="uname" value="新使用者">
             <p class="dialog_p">帳號 <input class="dialog_input" type="text" width="350px" size="24" name="uid"></p>
             <p class="dialog_p">密碼 <input class="dialog_input" type="password" width="350px" size="24" name="upwd"></p>
-            <button class="dialog_btn_w" value="enroll">登入</button>
+            <!-- <button class="dialog_btn_w" value="enroll">登入</button> -->
             <button class="dialog_btn_o" value="enter"  type="submit">確定</button>
         </form>
             <a class="close-reveal-modal">&#215;</a>
